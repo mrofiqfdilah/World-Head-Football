@@ -1,0 +1,432 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex; /* Menjadikan body flex container */
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+   
+    background-color: #222222;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.username-button{
+    background-color: #476774;
+    padding: 13px 23px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    display: none;
+    position: absolute;
+    top:30px;
+    left: 230px;
+    font-size: 16px;
+    position: absolute;
+}
+
+.history-button{
+    background-color: #1B4B8E;
+    padding: 13px 23px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    display: none;
+    position: absolute;
+    top:30px;
+    right: 230px;
+    font-size: 16px;
+    position: absolute;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Sesuaikan dengan kebutuhan Anda */
+}
+
+#canvas {
+    display: none; /* Tetap menyembunyikan elemen canvas */
+}
+
+.player1{
+    display: block;
+    width: 140px;
+    position: absolute;
+}
+
+.player-2{
+    transform: scaleX(-1);
+}
+
+.bola{
+    z-index: 1;
+}
+
+.container {
+    min-width: 1000px;
+    min-height: 600px;
+    background-color: #22529A;
+    display: flex; /* Menjadikan container flex container */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 0;
+}
+
+
+.welcome{
+    color: #fff;
+    font-weight: 500;
+    font-size: 25px;
+    position: relative;
+    top:5px;
+    text-transform: uppercase;
+}
+
+.judul{
+    color: #fff;
+    font-weight: 600;
+    font-size: 28px;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+}
+
+.gambar{
+    width:80px;
+    position: relative;
+    left: -90px;
+    
+    top:-220px;
+}
+
+.txt{
+    position: relative;
+    left: 165px;
+    top:-220px;
+}
+
+form{
+    position: relative;
+    left: -160px;
+    top:40px;
+}
+
+.input,select{
+    background-color: #00255B;
+    border: 3px solid #fff;
+    border-radius: 6px;
+    padding: 15px;
+    width: 350px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input{
+    width: 385px;
+}
+
+.box{
+    width: 480px;
+    height: 430px;
+    position: relative;
+    left: -100px;
+    background-color: #00255B;
+}
+
+.play{
+    padding: 13px 32px;
+    background-color: #E200FD;
+    font-weight: 800;
+    font-size: 20px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.instruction-btn{
+    padding: 13px 32px;
+    background-color: #FFF600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 800;
+    position: relative;
+    left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#countdown {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 70px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: none;
+    z-index: 9999;
+}
+.ball-animation {
+    transition: transform 0.2s ease-in-out; /* Atur durasi dan jenis animasi yang diinginkan */
+    position: absolute;
+}
+
+#ball {
+    position: absolute;
+    left: 475px; /* Posisi awal horizontal */
+    top: 430px; /* Posisi awal vertikal */
+    transition: left 1s ease, top 1s ease; /* Transisi untuk perubahan posisi */
+}
+
+.bendera-player1 {
+    width: 100px; /* Atur sesuai kebutuhan Anda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Jarak antara bendera */
+    position: absolute;
+    left: 40%;
+    top:13.8%;
+    transform: translateX(-50%);
+}
+
+.bendera-player2 {
+    width: 100px; /* Atur sesuai kebutuhan Anda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Jarak antara bendera */
+    position: absolute;
+    left: 61%;
+    top:13.8%;
+    transform: translateX(-50%);
+}
+.heal{
+    transform: rotate(-1);
+}
+
+.popup-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #22529A;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup-inner{
+    margin-top: -170px;
+}
+
+.score1{
+    font-size: 5rem;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    left: 240px;
+}
+
+.popup-title {
+    margin-bottom: 15px;
+    font-size: 3em;
+    text-align: center;
+    color: #FFF;
+}
+
+.bendera-all{
+    display: flex;
+  position: relative;
+  top:20px;
+}
+.bendera-musuh{
+    position: relative;
+    left: -440px;
+    
+}
+
+.all-btn{
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    left: 150px;
+}
+
+.save-button{
+    position: relative;
+    left: 20px;
+}
+
+.restart-button,.save-button{
+    padding: 10px 15px;
+    border: none;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    border-radius: 8px;
+   position: relative;
+   top:100px;
+    background-color: #00255B;
+    color: #fff;
+}
+
+.bendera-sendiri{
+    position: relative;
+    left: 306px;
+}
+
+.popup-text {
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
+
+.popup-text span {
+    font-weight: bold;
+}
+
+.popup-buttons {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+.popup-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-button.restart {
+    background-color: #018D00;
+    color: white;
+    position: relative;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.popup-button.save {
+    background-color: #8C3D0C;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.timer-text {
+    color: red;
+    font-size: 40px;
+    text-align: center; /* Pusatkan teks dalam elemen */
+    width: 100%; /* Buat elemen selebar halaman */
+    position: absolute; /* Posisikan elemen secara absolut */
+    top: 142px; /* Sesuaikan posisi vertikal sesuai kebutuhan */
+    left: 50.5%;
+    font-weight: 700;
+    transform: translateX(-50%); /* Pusatkan elemen secara horizontal */
+}
+
+.instructions {
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.gawangplayer1{
+    width: 130px;
+    position: absolute;
+    z-index: 9999;
+}
+
+#scoreboard {
+    position: absolute;
+    top: 80px;
+    display: none;
+    left: 50.5%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: white;
+    background-color: #133C78;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+#scoreboard span {
+    margin: 0 15px;
+}
+
+
+.gawangplayer2{
+    width: 130px;
+    position: absolute;
+    transform: scaleX(-1); /* Memutar gambar secara horizontal */
+    z-index: 9999;
+}
+
+.instructions h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.instructions ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.instructions ol li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.close-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-btn:hover {
+    background-color: #d32f2f;
+}
+
+

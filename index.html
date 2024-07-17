@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head Football</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Asset/Ball 01.png">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="txt">
+            <p class="welcome">World Head </p>
+            <p class="judul">Football</p>
+        </div>
+        <img class="gambar" src="./Asset/Ball 02.png" alt="">
+       
+        <div class="form">
+            <form id="form" onsubmit="canvas(); return false;">
+                <input type="text" class="input" name="username" placeholder="Input Your Username" id="username"><br>
+                <select style="width: 385px;" name="benderasendiri" id="benderasendiri">
+                    <option selected>Player 1 County</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="England">England</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Italy">Italy</option>
+                </select><br>
+
+                <select style="width: 385px;" name="benderamusuh" id="benderamusuh">
+                    <option selected>Player 2 County</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="England">England</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Italy">Italy</option>
+                </select><br>
+
+                <select style="width: 385px;" name="level" id="level">
+                    <option selected>Select Game Level</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select><br>
+                
+                <select style="width: 385px;" name="ball-color" id="ball-color">
+                    <option selected>Select Ball</option>
+                    <option value="Ball 01">Normal Ball</option>
+                    <option value="Ball 02">Colorfull Ball</option>
+                </select><br>
+
+                <button type="submit" class="play">Play Games</button>
+                <button type="button" class="instruction-btn">Instruction</button>
+            </form>
+        </div>
+
+        <div class="box">
+            <!-- Konten utama -->
+            <img src="./Asset/Ball 02.png" style="width: 100px; position: relative; left:70px; top:155px; " alt="">
+            <p style="font-size: 34px; font-weight: 600; color: #fff; position: relative; top:50px; left:190px;">WORLD HEAD <BR>FOOTBALL</p>
+        </div>
+    </div>
+    
+    <div class="canvas-container">
+        <canvas id="canvas"></canvas>
+        <button class="username-button" id="username-button" style="display: none;"></button>
+        <button class="history-button" id="history-button" style="display: none;">Match History</button>
+        <div id="scoreboard">
+            <span id="player1-score">0</span>
+            <span id="player2-score">0</span>
+        </div>
+        <div id="countdown"></div>
+        <div id="timer" class="timer-text" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.querySelector(".instruction-btn").addEventListener("click", function(event) {
+    event.preventDefault();
+    var box = document.querySelector(".box");
+    var mainContent = box.innerHTML;
+    var instructions = `
+        <div class="instructions">
+            <h2>How to play the game:</h2>
+            <ol>
+                <li>Input Username</li>
+                <li>Move character to bounce ball</li>
+                <li>Get high score and win</li>
+                <li>Enjoy!</li>
+            </ol>
+        </div>`;
+    box.innerHTML = instructions;
+    var closeButton = document.createElement("button");
+    closeButton.textContent = "X";
+    closeButton.className = "close-btn";
+    box.appendChild(closeButton);
+    closeButton.addEventListener("click", function(event) {
+        box.innerHTML = mainContent;
+    });
+});
+
+
+    </script>
+    
+
+    <script src="main.js"></script>
+</body>
+</html>
