@@ -1,2 +1,1 @@
-For Learn
-90%;
+NOT OOP
